@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <script src="./lib/angular/angular.min.js"></script>
+        <link rel="stylesheet" href="style.css">
+        <link rel="" href="style.css">
+        <script src="./lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+        <script src="./main.js"></script>
+        <script src="config.js"></script>
+       
+  
+    </head>
+    <body>
+        <div ng-controller="Controller" class="box">
+            <left-side></left-side>
+        </div>
+     
+        <div>
+            <style>.active { color: red; font-weight: bold; }</style> 
+            <a ui-sref="hello" ui-sref-active="active">Hello</a>
+            <a ui-sref="about" ui-sref-active="active">About</a>
+            <a ui-sref="products" ui-sref-active="active">Products</a>
+            <ui-view></ui-view>
+        </div>
+        <li ng-repeat="person in $ctrl.products">
+            <a ui-sref="person({ personId: person.id })">
+              {{person.name}}
+            </a>
+          </li>
+   
+    </body>
+</html>
